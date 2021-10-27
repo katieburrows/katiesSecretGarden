@@ -5,16 +5,17 @@ const Plant = ({
     numberPlanted,
     hoursOfSunlight,
     isHealthy,
-    isAlive
+    isAlive,
+    deleteVeg
 }) => {
     return (
         <li>
-            <h2>{ plantName }</h2>
+            <h2>{plantName}</h2>
 
             <section>
                 <ul>
                     <li>Type: {type}</li>
-                    <span onClick = { () => alert("delete clicked")}>delete</span>
+                    <button onClick = { () => deleteVeg(plantName)}>delete</button>
                     <li>Currently Watered: {isWatered.toString()}</li>
                     <li>Number Planted: {numberPlanted}</li>
                     <li>Daily hours of sunlight: {hoursOfSunlight}</li>
@@ -23,7 +24,6 @@ const Plant = ({
                 </ul>
             </section>
         </li>
-
     );
 };
 

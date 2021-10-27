@@ -1,6 +1,7 @@
 import Plant from './components/Plant';
+import { useState } from 'react';
 
-const veg = [
+const data = [
   {
     plantName: "snow pea",
     type: "annual",
@@ -49,6 +50,7 @@ const veg = [
 ];
 
 const Garden = () => {
+  const [veg, setVeg] = useState(data);
   return (
     <ul>
       {veg.map(({ plantName, type, isWatered, numberPlanted, hoursOfSunlight, isHealthy, isAlive }) => (

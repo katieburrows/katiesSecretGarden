@@ -14,6 +14,7 @@ const Plant = ({
             <section>
                 <ul>
                     <li>Type: {type}</li>
+                    <span onClick = { () => alert("delete clicked")}>delete</span>
                     <li>Currently Watered: {isWatered.toString()}</li>
                     <li>Number Planted: {numberPlanted}</li>
                     <li>Daily hours of sunlight: {hoursOfSunlight}</li>

@@ -22728,9 +22728,11 @@ parcelHelpers.defineInteropFlag(exports);
 var _jsxRuntime = require("react/jsx-runtime");
 var _plant = require("./components/Plant");
 var _plantDefault = parcelHelpers.interopDefault(_plant);
-const veg = [
+var _react = require("react");
+var _s = $RefreshSig$();
+const data = [
     {
-        plantName: "snowpea",
+        plantName: "snow pea",
         type: "annual",
         isWatered: true,
         numberPlanted: 5,
@@ -22776,10 +22778,12 @@ const veg = [
     }, 
 ];
 const Garden = ()=>{
+    _s();
+    const [veg, setVeg] = _react.useState(data);
     return(/*#__PURE__*/ _jsxRuntime.jsx("ul", {
         __source: {
             fileName: "src/Garden.jsx",
-            lineNumber: 53
+            lineNumber: 55
         },
         __self: undefined,
         children: veg.map(({ plantName , type , isWatered , numberPlanted , hoursOfSunlight , isHealthy , isAlive  })=>/*#__PURE__*/ _jsxRuntime.jsx(_plantDefault.default, {
@@ -22792,13 +22796,14 @@ const Garden = ()=>{
                 isAlive: isAlive,
                 __source: {
                     fileName: "src/Garden.jsx",
-                    lineNumber: 55
+                    lineNumber: 57
                 },
                 __self: undefined
             }, plantName)
         )
     }));
 };
+_s(Garden, "Fg4zkknQD86WfD4um3koyiJwFjI=");
 _c = Garden;
 exports.default = Garden;
 var _c;
@@ -22809,7 +22814,7 @@ $RefreshReg$(_c, "Garden");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","./components/Plant":"hIEmC","@parcel/transformer-js/src/esmodule-helpers.js":"5lGN4","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"lpaPZ"}],"hIEmC":[function(require,module,exports) {
+},{"react/jsx-runtime":"8xIwr","./components/Plant":"hIEmC","@parcel/transformer-js/src/esmodule-helpers.js":"5lGN4","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"lpaPZ","react":"6TuXu"}],"hIEmC":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$7091 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -22819,7 +22824,7 @@ try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jsxRuntime = require("react/jsx-runtime");
-const Plant = ({ plantName , type , isWatered , numberPlanted , hoursOfSunligjt , isHealthy , isAlive  })=>{
+const Plant = ({ plantName , type , isWatered , numberPlanted , hoursOfSunlight , isHealthy , isAlive  })=>{
     return(/*#__PURE__*/ _jsxRuntime.jsxs("li", {
         __source: {
             fileName: "src/components/Plant.jsx",
@@ -22859,10 +22864,20 @@ const Plant = ({ plantName , type , isWatered , numberPlanted , hoursOfSunligjt 
                                 type
                             ]
                         }),
-                        /*#__PURE__*/ _jsxRuntime.jsxs("li", {
+                        /*#__PURE__*/ _jsxRuntime.jsx("span", {
+                            onClick: ()=>alert("delete clicked")
+                            ,
                             __source: {
                                 fileName: "src/components/Plant.jsx",
                                 lineNumber: 17
+                            },
+                            __self: undefined,
+                            children: "delete"
+                        }),
+                        /*#__PURE__*/ _jsxRuntime.jsxs("li", {
+                            __source: {
+                                fileName: "src/components/Plant.jsx",
+                                lineNumber: 18
                             },
                             __self: undefined,
                             children: [
@@ -22873,7 +22888,7 @@ const Plant = ({ plantName , type , isWatered , numberPlanted , hoursOfSunligjt 
                         /*#__PURE__*/ _jsxRuntime.jsxs("li", {
                             __source: {
                                 fileName: "src/components/Plant.jsx",
-                                lineNumber: 18
+                                lineNumber: 19
                             },
                             __self: undefined,
                             children: [
@@ -22884,18 +22899,18 @@ const Plant = ({ plantName , type , isWatered , numberPlanted , hoursOfSunligjt 
                         /*#__PURE__*/ _jsxRuntime.jsxs("li", {
                             __source: {
                                 fileName: "src/components/Plant.jsx",
-                                lineNumber: 19
+                                lineNumber: 20
                             },
                             __self: undefined,
                             children: [
                                 "Daily hours of sunlight: ",
-                                hoursOfSunligjt
+                                hoursOfSunlight
                             ]
                         }),
                         /*#__PURE__*/ _jsxRuntime.jsxs("li", {
                             __source: {
                                 fileName: "src/components/Plant.jsx",
-                                lineNumber: 20
+                                lineNumber: 21
                             },
                             __self: undefined,
                             children: [
@@ -22906,7 +22921,7 @@ const Plant = ({ plantName , type , isWatered , numberPlanted , hoursOfSunligjt 
                         /*#__PURE__*/ _jsxRuntime.jsxs("li", {
                             __source: {
                                 fileName: "src/components/Plant.jsx",
-                                lineNumber: 21
+                                lineNumber: 22
                             },
                             __self: undefined,
                             children: [

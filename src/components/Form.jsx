@@ -24,8 +24,8 @@ const Form = () => {
             </label>
             <label>
                 Did you water it:
-                <input type="radio" id = "true" name="water" value="isWatered"/>True
-                <input type="radio" id = "false" name="water" value="isWatered"/>False
+                <input type="radio" id = "true" name="isWatered" value="isWatered"/>True
+                <input type="radio" id = "false" name="isWatered" value="isWatered"/>False
             </label>
             <label>
                 How many did you plant (0-1000):

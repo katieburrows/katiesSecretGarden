@@ -23221,7 +23221,7 @@ const Form = ()=>{
                     /*#__PURE__*/ _jsxRuntime.jsx("input", {
                         type: "radio",
                         id: "true",
-                        name: "water",
+                        name: "isWatered",
                         value: "isWatered",
                         __source: {
                             fileName: "src/components/Form.jsx",
@@ -23233,7 +23233,7 @@ const Form = ()=>{
                     /*#__PURE__*/ _jsxRuntime.jsx("input", {
                         type: "radio",
                         id: "false",
-                        name: "water",
+                        name: "isWatered",
                         value: "isWatered",
                         __source: {
                             fileName: "src/components/Form.jsx",

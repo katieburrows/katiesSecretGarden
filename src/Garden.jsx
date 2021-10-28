@@ -51,6 +51,10 @@ const data = [
 
 const Garden = () => {
   const [veg, setVeg] = useState(data);
+  const deleteVeg = function(plantName) {
+    const remainingVeg = veg.filter(item => item.plantName !== plantName)
+    setVeg(remainingVeg);
+  }
   return (
     <ul>
       {veg.map(({ plantName, type, isWatered, numberPlanted, hoursOfSunlight, isHealthy, isAlive }) => (
@@ -62,7 +66,8 @@ const Garden = () => {
           numberPlanted={numberPlanted}
           hoursOfSunlight={hoursOfSunlight}
           isHealthy={isHealthy}
-          isAlive={isAlive} 
+          isAlive={isAlive}
+          deleteVeg={deleteVeg}
         />
       ))}
     </ul>

@@ -1,5 +1,6 @@
 import Plant from './components/Plant';
 import { useState } from 'react';
+import Form from './components/Form';
 
 const data = [
   {
@@ -56,21 +57,27 @@ const Garden = () => {
     setVeg(remainingVeg);
   }
   return (
-    <ul>
-      {veg.map(({ plantName, type, isWatered, numberPlanted, hoursOfSunlight, isHealthy, isAlive }) => (
-        <Plant
-          key={plantName}
-          plantName={plantName}
-          type={type}
-          isWatered={isWatered}
-          numberPlanted={numberPlanted}
-          hoursOfSunlight={hoursOfSunlight}
-          isHealthy={isHealthy}
-          isAlive={isAlive}
-          deleteVeg={deleteVeg}
-        />
-      ))}
-    </ul>
+    <>
+      <ul>
+        {veg.map(({ plantName, type, isWatered, numberPlanted, hoursOfSunlight, isHealthy, isAlive }) => (
+          <Plant
+            key={plantName}
+            plantName={plantName}
+            type={type}
+            isWatered={isWatered}
+            numberPlanted={numberPlanted}
+            hoursOfSunlight={hoursOfSunlight}
+            isHealthy={isHealthy}
+            isAlive={isAlive}
+            deleteVeg={deleteVeg}
+          />
+        ))}
+      </ul>
+
+      <Form />
+    </>
   );
 };
+
+
 export default Garden;

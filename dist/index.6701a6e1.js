@@ -22729,6 +22729,8 @@ var _jsxRuntime = require("react/jsx-runtime");
 var _plant = require("./components/Plant");
 var _plantDefault = parcelHelpers.interopDefault(_plant);
 var _react = require("react");
+var _form = require("./components/Form");
+var _formDefault = parcelHelpers.interopDefault(_form);
 var _s = $RefreshSig$();
 const data = [
     {
@@ -22780,27 +22782,44 @@ const data = [
 const Garden = ()=>{
     _s();
     const [veg, setVeg] = _react.useState(data);
-    return(/*#__PURE__*/ _jsxRuntime.jsx("ul", {
-        __source: {
-            fileName: "src/Garden.jsx",
-            lineNumber: 55
-        },
-        __self: undefined,
-        children: veg.map(({ plantName , type , isWatered , numberPlanted , hoursOfSunlight , isHealthy , isAlive  })=>/*#__PURE__*/ _jsxRuntime.jsx(_plantDefault.default, {
-                plantName: plantName,
-                type: type,
-                isWatered: isWatered,
-                numberPlanted: numberPlanted,
-                hoursOfSunlight: hoursOfSunlight,
-                isHealthy: isHealthy,
-                isAlive: isAlive,
+    const deleteVeg = function(plantName) {
+        const remainingVeg = veg.filter((item)=>item.plantName !== plantName
+        );
+        setVeg(remainingVeg);
+    };
+    return(/*#__PURE__*/ _jsxRuntime.jsxs(_jsxRuntime.Fragment, {
+        children: [
+            /*#__PURE__*/ _jsxRuntime.jsx("ul", {
                 __source: {
                     fileName: "src/Garden.jsx",
-                    lineNumber: 57
+                    lineNumber: 61
+                },
+                __self: undefined,
+                children: veg.map(({ plantName , type , isWatered , numberPlanted , hoursOfSunlight , isHealthy , isAlive  })=>/*#__PURE__*/ _jsxRuntime.jsx(_plantDefault.default, {
+                        plantName: plantName,
+                        type: type,
+                        isWatered: isWatered,
+                        numberPlanted: numberPlanted,
+                        hoursOfSunlight: hoursOfSunlight,
+                        isHealthy: isHealthy,
+                        isAlive: isAlive,
+                        deleteVeg: deleteVeg,
+                        __source: {
+                            fileName: "src/Garden.jsx",
+                            lineNumber: 63
+                        },
+                        __self: undefined
+                    }, plantName)
+                )
+            }),
+            /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default, {
+                __source: {
+                    fileName: "src/Garden.jsx",
+                    lineNumber: 77
                 },
                 __self: undefined
-            }, plantName)
-        )
+            })
+        ]
     }));
 };
 _s(Garden, "Fg4zkknQD86WfD4um3koyiJwFjI=");
@@ -22814,7 +22833,7 @@ $RefreshReg$(_c, "Garden");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","./components/Plant":"hIEmC","@parcel/transformer-js/src/esmodule-helpers.js":"5lGN4","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"lpaPZ","react":"6TuXu"}],"hIEmC":[function(require,module,exports) {
+},{"react/jsx-runtime":"8xIwr","./components/Plant":"hIEmC","react":"6TuXu","@parcel/transformer-js/src/esmodule-helpers.js":"5lGN4","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"lpaPZ","./components/Form":"grcqP"}],"hIEmC":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$7091 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -22824,18 +22843,18 @@ try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jsxRuntime = require("react/jsx-runtime");
-const Plant = ({ plantName , type , isWatered , numberPlanted , hoursOfSunlight , isHealthy , isAlive  })=>{
+const Plant = ({ plantName , type , isWatered , numberPlanted , hoursOfSunlight , isHealthy , isAlive , deleteVeg  })=>{
     return(/*#__PURE__*/ _jsxRuntime.jsxs("li", {
         __source: {
             fileName: "src/components/Plant.jsx",
-            lineNumber: 11
+            lineNumber: 12
         },
         __self: undefined,
         children: [
             /*#__PURE__*/ _jsxRuntime.jsx("h2", {
                 __source: {
                     fileName: "src/components/Plant.jsx",
-                    lineNumber: 12
+                    lineNumber: 13
                 },
                 __self: undefined,
                 children: plantName
@@ -22843,20 +22862,20 @@ const Plant = ({ plantName , type , isWatered , numberPlanted , hoursOfSunlight 
             /*#__PURE__*/ _jsxRuntime.jsx("section", {
                 __source: {
                     fileName: "src/components/Plant.jsx",
-                    lineNumber: 14
+                    lineNumber: 15
                 },
                 __self: undefined,
                 children: /*#__PURE__*/ _jsxRuntime.jsxs("ul", {
                     __source: {
                         fileName: "src/components/Plant.jsx",
-                        lineNumber: 15
+                        lineNumber: 16
                     },
                     __self: undefined,
                     children: [
                         /*#__PURE__*/ _jsxRuntime.jsxs("li", {
                             __source: {
                                 fileName: "src/components/Plant.jsx",
-                                lineNumber: 16
+                                lineNumber: 17
                             },
                             __self: undefined,
                             children: [
@@ -22864,12 +22883,12 @@ const Plant = ({ plantName , type , isWatered , numberPlanted , hoursOfSunlight 
                                 type
                             ]
                         }),
-                        /*#__PURE__*/ _jsxRuntime.jsx("span", {
-                            onClick: ()=>alert("delete clicked")
+                        /*#__PURE__*/ _jsxRuntime.jsx("button", {
+                            onClick: ()=>deleteVeg(plantName)
                             ,
                             __source: {
                                 fileName: "src/components/Plant.jsx",
-                                lineNumber: 17
+                                lineNumber: 18
                             },
                             __self: undefined,
                             children: "delete"
@@ -22877,7 +22896,7 @@ const Plant = ({ plantName , type , isWatered , numberPlanted , hoursOfSunlight 
                         /*#__PURE__*/ _jsxRuntime.jsxs("li", {
                             __source: {
                                 fileName: "src/components/Plant.jsx",
-                                lineNumber: 18
+                                lineNumber: 19
                             },
                             __self: undefined,
                             children: [
@@ -22888,7 +22907,7 @@ const Plant = ({ plantName , type , isWatered , numberPlanted , hoursOfSunlight 
                         /*#__PURE__*/ _jsxRuntime.jsxs("li", {
                             __source: {
                                 fileName: "src/components/Plant.jsx",
-                                lineNumber: 19
+                                lineNumber: 20
                             },
                             __self: undefined,
                             children: [
@@ -22899,7 +22918,7 @@ const Plant = ({ plantName , type , isWatered , numberPlanted , hoursOfSunlight 
                         /*#__PURE__*/ _jsxRuntime.jsxs("li", {
                             __source: {
                                 fileName: "src/components/Plant.jsx",
-                                lineNumber: 20
+                                lineNumber: 21
                             },
                             __self: undefined,
                             children: [
@@ -22910,7 +22929,7 @@ const Plant = ({ plantName , type , isWatered , numberPlanted , hoursOfSunlight 
                         /*#__PURE__*/ _jsxRuntime.jsxs("li", {
                             __source: {
                                 fileName: "src/components/Plant.jsx",
-                                lineNumber: 21
+                                lineNumber: 22
                             },
                             __self: undefined,
                             children: [
@@ -22921,7 +22940,7 @@ const Plant = ({ plantName , type , isWatered , numberPlanted , hoursOfSunlight 
                         /*#__PURE__*/ _jsxRuntime.jsxs("li", {
                             __source: {
                                 fileName: "src/components/Plant.jsx",
-                                lineNumber: 22
+                                lineNumber: 23
                             },
                             __self: undefined,
                             children: [
@@ -23097,6 +23116,268 @@ function registerExportsForReactRefresh(module) {
     }
 }
 
-},{"react-refresh/runtime":"eqMEG"}],"hLoUL":[function() {},{}]},["9NtYk","k2XMz","dLPEP"], "dLPEP", "parcelRequire336d")
+},{"react-refresh/runtime":"eqMEG"}],"grcqP":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$7aba = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$7aba.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxRuntime = require("react/jsx-runtime");
+const Form = ()=>{
+    return(/*#__PURE__*/ _jsxRuntime.jsxs("form", {
+        __source: {
+            fileName: "src/components/Form.jsx",
+            lineNumber: 3
+        },
+        __self: undefined,
+        children: [
+            /*#__PURE__*/ _jsxRuntime.jsxs("label", {
+                __source: {
+                    fileName: "src/components/Form.jsx",
+                    lineNumber: 4
+                },
+                __self: undefined,
+                children: [
+                    "Plant Name:",
+                    /*#__PURE__*/ _jsxRuntime.jsx("input", {
+                        type: "text",
+                        name: "name",
+                        __source: {
+                            fileName: "src/components/Form.jsx",
+                            lineNumber: 6
+                        },
+                        __self: undefined
+                    })
+                ]
+            }),
+            /*#__PURE__*/ _jsxRuntime.jsxs("label", {
+                for: "type",
+                __source: {
+                    fileName: "src/components/Form.jsx",
+                    lineNumber: 8
+                },
+                __self: undefined,
+                children: [
+                    "Type:",
+                    /*#__PURE__*/ _jsxRuntime.jsxs("select", {
+                        id: "type",
+                        __source: {
+                            fileName: "src/components/Form.jsx",
+                            lineNumber: 10
+                        },
+                        __self: undefined,
+                        children: [
+                            /*#__PURE__*/ _jsxRuntime.jsx("option", {
+                                value: "selectOne",
+                                __source: {
+                                    fileName: "src/components/Form.jsx",
+                                    lineNumber: 11
+                                },
+                                __self: undefined,
+                                children: "Select One"
+                            }),
+                            /*#__PURE__*/ _jsxRuntime.jsx("option", {
+                                value: "annual",
+                                __source: {
+                                    fileName: "src/components/Form.jsx",
+                                    lineNumber: 14
+                                },
+                                __self: undefined,
+                                children: "Annual"
+                            }),
+                            /*#__PURE__*/ _jsxRuntime.jsx("option", {
+                                value: "perennial",
+                                __source: {
+                                    fileName: "src/components/Form.jsx",
+                                    lineNumber: 17
+                                },
+                                __self: undefined,
+                                children: "Perennial"
+                            }),
+                            /*#__PURE__*/ _jsxRuntime.jsx("option", {
+                                value: "Biennial",
+                                __source: {
+                                    fileName: "src/components/Form.jsx",
+                                    lineNumber: 20
+                                },
+                                __self: undefined,
+                                children: "Biennial"
+                            })
+                        ]
+                    })
+                ]
+            }),
+            /*#__PURE__*/ _jsxRuntime.jsxs("label", {
+                __source: {
+                    fileName: "src/components/Form.jsx",
+                    lineNumber: 25
+                },
+                __self: undefined,
+                children: [
+                    "Did you water it:",
+                    /*#__PURE__*/ _jsxRuntime.jsx("input", {
+                        type: "radio",
+                        id: "true",
+                        name: "water",
+                        value: "isWatered",
+                        __source: {
+                            fileName: "src/components/Form.jsx",
+                            lineNumber: 27
+                        },
+                        __self: undefined
+                    }),
+                    "True",
+                    /*#__PURE__*/ _jsxRuntime.jsx("input", {
+                        type: "radio",
+                        id: "false",
+                        name: "water",
+                        value: "isWatered",
+                        __source: {
+                            fileName: "src/components/Form.jsx",
+                            lineNumber: 28
+                        },
+                        __self: undefined
+                    }),
+                    "False"
+                ]
+            }),
+            /*#__PURE__*/ _jsxRuntime.jsxs("label", {
+                __source: {
+                    fileName: "src/components/Form.jsx",
+                    lineNumber: 30
+                },
+                __self: undefined,
+                children: [
+                    "How many did you plant (0-1000):",
+                    /*#__PURE__*/ _jsxRuntime.jsx("input", {
+                        type: "number",
+                        id: "numberPlanted",
+                        name: "numberPlanted",
+                        min: "0",
+                        max: "1000",
+                        __source: {
+                            fileName: "src/components/Form.jsx",
+                            lineNumber: 32
+                        },
+                        __self: undefined
+                    })
+                ]
+            }),
+            /*#__PURE__*/ _jsxRuntime.jsxs("label", {
+                __source: {
+                    fileName: "src/components/Form.jsx",
+                    lineNumber: 34
+                },
+                __self: undefined,
+                children: [
+                    "Hours of sunlight needed (0-24):",
+                    /*#__PURE__*/ _jsxRuntime.jsx("input", {
+                        type: "number",
+                        id: "hoursOfSunlight",
+                        name: "hoursOfSunlight",
+                        min: "0",
+                        max: "24",
+                        __source: {
+                            fileName: "src/components/Form.jsx",
+                            lineNumber: 36
+                        },
+                        __self: undefined
+                    })
+                ]
+            }),
+            /*#__PURE__*/ _jsxRuntime.jsxs("label", {
+                __source: {
+                    fileName: "src/components/Form.jsx",
+                    lineNumber: 38
+                },
+                __self: undefined,
+                children: [
+                    "Is it healthy:",
+                    /*#__PURE__*/ _jsxRuntime.jsx("input", {
+                        type: "radio",
+                        id: "true",
+                        name: "isHealthy",
+                        value: "isHealthy",
+                        __source: {
+                            fileName: "src/components/Form.jsx",
+                            lineNumber: 40
+                        },
+                        __self: undefined
+                    }),
+                    "True",
+                    /*#__PURE__*/ _jsxRuntime.jsx("input", {
+                        type: "radio",
+                        id: "false",
+                        name: "isHealthy",
+                        value: "isWatered",
+                        __source: {
+                            fileName: "src/components/Form.jsx",
+                            lineNumber: 41
+                        },
+                        __self: undefined
+                    }),
+                    "False"
+                ]
+            }),
+            /*#__PURE__*/ _jsxRuntime.jsxs("label", {
+                __source: {
+                    fileName: "src/components/Form.jsx",
+                    lineNumber: 43
+                },
+                __self: undefined,
+                children: [
+                    "Is it alive:",
+                    /*#__PURE__*/ _jsxRuntime.jsx("input", {
+                        type: "radio",
+                        id: "true",
+                        name: "isAlive",
+                        value: "isAlive",
+                        __source: {
+                            fileName: "src/components/Form.jsx",
+                            lineNumber: 45
+                        },
+                        __self: undefined
+                    }),
+                    "True",
+                    /*#__PURE__*/ _jsxRuntime.jsx("input", {
+                        type: "radio",
+                        id: "false",
+                        name: "isAlive",
+                        value: "isAlive",
+                        __source: {
+                            fileName: "src/components/Form.jsx",
+                            lineNumber: 46
+                        },
+                        __self: undefined
+                    }),
+                    "False"
+                ]
+            }),
+            /*#__PURE__*/ _jsxRuntime.jsx("input", {
+                type: "submit",
+                value: "Submit",
+                __source: {
+                    fileName: "src/components/Form.jsx",
+                    lineNumber: 49
+                },
+                __self: undefined
+            })
+        ]
+    }));
+};
+_c = Form;
+exports.default = Form;
+var _c;
+$RefreshReg$(_c, "Form");
+
+  $parcel$ReactRefreshHelpers$7aba.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-runtime":"8xIwr","@parcel/transformer-js/src/esmodule-helpers.js":"5lGN4","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"lpaPZ"}],"hLoUL":[function() {},{}]},["9NtYk","k2XMz","dLPEP"], "dLPEP", "parcelRequire336d")
 
 //# sourceMappingURL=index.6701a6e1.js.map

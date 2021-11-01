@@ -1,8 +1,8 @@
 import { useState } from "react";
 
-const Form = () => {
-    // const [this will be the state variable, this is the setter method for the state variable] = useState(this is the starting value for the state variable);
-    //this is the React way to create a variable.
+//After creating the addVeg method, we passed it in as a prop via destructuring
+const Form = ({addVeg}) => {
+    // react way to create a variable: const [state variable, setter method for the state variable] = useState(starting value for the state variable);
     const [plantName, setPlantName] = useState("");
     const [plantType, setPlantType] = useState("");
     const [numberPlanted, setNumberPlanted] = useState(0);
@@ -13,7 +13,6 @@ const Form = () => {
 
     const handleRadio = event => {
         const nameAttr = event.target.name;
-        //stores either boolean true or boolean false after it's evaluated.
         const valueAttr = (event.target.value === "true");
 
         switch (nameAttr) {
@@ -28,11 +27,40 @@ const Form = () => {
                 break;
             default:
                 console.log(`Sarah said default is UNNECESSARY "in this case"`);
-        }
-        
+        } 
     }
+ 
+    //we created this event handler method to perform the following: prevent the page from reloading immediately when the form is submitted, unless certain conditions are met, so that it doesn't cause issues
+    const handleSubmit = event => {
+        event.preventDefault();
+        //we set the condition that the plant name only needed to be filled out for the form submission to be succesful, thus updating state of each property
+        if(plantName){
+            addVeg({
+                plantName: plantName,
+                type: plantType,
+                numberPlanted: numberPlanted,
+                hoursOfSunlight: hoursOfSunlight,
+                isWatered: isWatered,
+                isHealthy: isHealthy,
+                isAlive: isAlive,
+            })
+            //then we decided that the input fields should reset to their original values
+            setPlantName("");
+            setPlantType("");
+            setNumberPlanted(0);
+            setHoursOfSunlight(0);
+            setIsWatered(false);
+            setIsHealthy(true);
+            setIsAlive(true);
+        } else {
+            //finally, in the case that the plant name was not filled out, we'd have an alert pop up with instructions for the user (there are better forms of doing this, check with sarah later)
+            alert("You must enter a plant name to submit");
+        }
+    }
+
     return (
-        <form>
+         //after passing in the addVeg nethod, we brainstormed how to handle the subnission of a new plant, so we did the following: attached an onSubmit event handler to the form, and defined what it would do (see handleSubmit method above)
+        <form onSubmit={handleSubmit}>
             <label>
                 Plant Name:
                 <input onChange={(event) => setPlantName(event.target.value)} type="text" name="name" value={plantName} />
@@ -55,22 +83,17 @@ const Form = () => {
                 </select>
             </label>
             <label>
-                Did you water it:
-                {/* for our onChange, we do not need to pass in the event parameter, because when onChange is triggered it automatically passes in the event info.  If I did want to write it out explicitly it would need to look like this:
-                
-                    <input onChange={(event) => handleRadio(event)} />
-
-                */}
-                <input onChange={handleRadio} type="radio"  name="isWatered" value="true" checked={(isWatered)}/>True
-                <input onChange={handleRadio} type="radio"  name="isWatered" value="false" checked={(!isWatered)}/>False
-            </label>
-            <label>
                 How many did you plant (0-1000):
                 <input onChange={(event) => setNumberPlanted(parseInt(event.target.value))} type="number" id="numberPlanted" name="numberPlanted" min="0" max="1000" value={numberPlanted} />
             </label>
             <label>
                 Hours of sunlight needed (0-24):
                 <input onChange = {(event) => setHoursOfSunlight(parseInt(event.target.value))}type="number" id="hoursOfSunlight" name="hoursOfSunlight" min="0" max="24" value={hoursOfSunlight}/>
+            </label>
+            <label>
+                Did you water it:
+                <input onChange={handleRadio} type="radio"  name="isWatered" value="true" checked={(isWatered)}/>True
+                <input onChange={handleRadio} type="radio"  name="isWatered" value="false" checked={(!isWatered)}/>False
             </label>
             <label>
                 Is it healthy:
@@ -87,5 +110,6 @@ const Form = () => {
         </form>
     );
 };
+
 
 export default Form;

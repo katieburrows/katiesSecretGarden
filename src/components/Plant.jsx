@@ -1,9 +1,9 @@
 const Plant = ({
     plantName,
     type,
-    isWatered,
     numberPlanted,
     hoursOfSunlight,
+    isWatered,
     isHealthy,
     isAlive,
     deleteVeg
@@ -16,9 +16,9 @@ const Plant = ({
                 <ul>
                     <li>Type: {type}</li>
                     <button onClick = { () => deleteVeg(plantName)}>delete</button>
-                    <li>Currently Watered: {isWatered.toString()}</li>
                     <li>Number Planted: {numberPlanted}</li>
                     <li>Daily hours of sunlight: {hoursOfSunlight}</li>
+                    <li>Currently Watered: {isWatered.toString()}</li>
                     <li>Plant is Healthy: {isHealthy.toString()}</li>
                     <li>Plant is Alive: {isAlive.toString()}</li>
                 </ul>
@@ -26,5 +26,6 @@ const Plant = ({
         </li>
     );
 };
+
 
 export default Plant;

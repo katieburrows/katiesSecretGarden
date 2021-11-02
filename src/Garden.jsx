@@ -5,7 +5,7 @@ import Form from './components/Form';
 const data = [
   {
     plantName: "snow pea",
-    type: "annual",
+    plantType: "annual",
     numberPlanted: 5,
     hoursOfSunlight: 8,
     isWatered: true,
@@ -14,7 +14,7 @@ const data = [
   },
   {
     plantName: "bell pepper",
-    type: "perennial",
+    plantType: "perennial",
     numberPlanted: 15,
     hoursOfSunlight: 6,
     isWatered: false,
@@ -23,7 +23,7 @@ const data = [
   },
   {
     plantName: "onion",
-    type: "biennial",
+    plantType: "biennial",
     numberPlanted: 108,
     hoursOfSunlight: 13,
     isWatered: true,
@@ -32,7 +32,7 @@ const data = [
   },
   {
     plantName: "cucumber",
-    type: "annual",
+    plantType: "annual",
     numberPlanted: 1,
     hoursOfSunlight: 9,
     isWatered: false,
@@ -41,7 +41,7 @@ const data = [
   },
   {
     plantName: "lettuce",
-    type: "annual",
+    plantType: "annual",
     numberPlanted: 5,
     hoursOfSunlight: 8,
     isWatered: true,
@@ -67,11 +67,12 @@ const Garden = () => {
   return (
     <>
       <ul>
-        {veg.map(({ plantName, type, numberPlanted, hoursOfSunlight, isWatered, isHealthy, isAlive }) => (
+        {veg.map(({ plantName, plantType, numberPlanted, hoursOfSunlight, isWatered, isHealthy, isAlive }) => (
           <Plant
+            //sent/passed-in props (JS arguments)
             key={plantName}
             plantName={plantName}
-            type={type}
+            plantType={plantType}
             numberPlanted={numberPlanted}
             hoursOfSunlight={hoursOfSunlight}
             isWatered={isWatered}

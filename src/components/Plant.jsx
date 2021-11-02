@@ -1,6 +1,7 @@
 const Plant = ({
+    //received props (JS parameters)
     plantName,
-    type,
+    plantType,
     numberPlanted,
     hoursOfSunlight,
     isWatered,
@@ -14,7 +15,7 @@ const Plant = ({
 
             <section>
                 <ul>
-                    <li>Type: {type}</li>
+                    <li>Type: {plantType}</li>
                     <button onClick = { () => deleteVeg(plantName)}>delete</button>
                     <li>Number Planted: {numberPlanted}</li>
                     <li>Daily hours of sunlight: {hoursOfSunlight}</li>
